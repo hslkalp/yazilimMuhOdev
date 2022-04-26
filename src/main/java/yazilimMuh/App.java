@@ -9,6 +9,7 @@ import static spark.Spark.post;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
@@ -50,14 +51,14 @@ public class App {
                 inputList.add(value);
             }
             sc1.close();
-            System.out.println(inputList);
 
-            String input2 = req.queryParams("input2").replaceAll("\\s", "");
-            int input2AsInt = Integer.parseInt(input2);
+            String name = req.queryParams("name").replaceAll("\\s", "");
+            String lastName = req.queryParams("lastName").replaceAll("\\s", "");
+            int userNameLength = Integer.parseInt(req.queryParams("userNameLength").replaceAll("\\s", ""));
 
-            // boolean result = App.search(inputList, input2AsInt);
-            Map<String, Boolean> map = new HashMap<String, Boolean>();
-            // map.put("result", result);
+            String result = App.generatePassword(inputList, name, lastName, userNameLength);
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("result", result);
             return new ModelAndView(map, "compute.mustache");
 
         },
@@ -65,14 +66,19 @@ public class App {
 
     }
 
-    public static boolean search(ArrayList<Integer> array, int e) {
-        System.out.print("inside search");
-        if (array == null)
-            return false;
-        for (int elt : array) {
-            if (elt == e)
-                return true;
+    public static String generatePassword(ArrayList<String> inputList, String name, String lastName,
+            int userNameLength) {
+        Random rand = new Random();
+        String createdUserName = "";
+        int length = inputList.size();
+
+        createdUserName += "_" + name.substring(0, 2); // adın ilk iki karakteri
+        for (int i = 0; i < length; i++) {
+            int randomNumber = rand.nextInt(length);
+            createdUserName += inputList.get(randomNumber);
         }
-        return false;
+        createdUserName += lastName.substring(lastName.length() - 3); // soyadın son iki harfi
+        createdUserName = createdUserName.substring(0, userNameLength);
+        return createdUserName;
     }
 }
