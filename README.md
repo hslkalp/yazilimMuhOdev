@@ -1,3 +1,3 @@
 <ul>
-   <li>Readme Sayfasi</li>
+   <li>Kullanılan Teknolojiler</li>
 </ul>
