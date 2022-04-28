@@ -43,12 +43,5 @@ class AppTest {
                 (App.generatePassword(arrayList, name, lastName, passwordLength).length()) == 0);
     }
 
-    @Test
-    public void testStringLength() {
-        String name = "Alpgiray", lastName = "Haşlak";
-        if (name.length() < 2 || lastName.length() < 2) {
-            assertFalse(true);
-        }
-    }
 
 }
