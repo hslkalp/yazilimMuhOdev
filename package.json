@@ -1,0 +1,8 @@
+{
+    "name" : "yazilimMuhOdev3",
+    "description": "yazilim mühendisliği ödevi",
+    "version": "1.0.0",
+    "engines": {
+        "node": "16.13.2"
+    }
+}
