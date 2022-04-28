@@ -20,14 +20,14 @@ import org.apache.logging.log4j.Logger;
 // app
 public class App {
     public String getGreeting() {
-        return "Hello world.";
+        return "Hello from VSCode.";
     }
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
 
         Logger logger = LogManager.getLogger(App.class);
-        logger.error("hellooooo");
+        logger.error("Custom error message.");
 
         get("/compute",
                 (rq, rs) -> {
