@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/yazilimMuh-all.jar --port $PORT target/*w
+web : java -jar build/libs/yazilimMuh-all.jar
