@@ -31,9 +31,9 @@ public class App {
         logger.error("Custom error message.");
 
 
-        // int port = Integer.parseInt(System.getenv("PORT"));
-        // port(port);
-        // logger.error("Current port number is "+ port);
+        int port = Integer.parseInt(System.getenv("PORT"));
+        port(port);
+        logger.error("Current port number is "+ port);
 
         get("/compute",
                 (rq, rs) -> {
