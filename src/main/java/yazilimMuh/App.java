@@ -38,8 +38,9 @@ public class App {
 
         get("/",
                 (req, res) -> {
-                    String home = "Anasayfa";
-                    return new ModelAndView(home, "home.mustache");
+                    Map<String, String> map = new HashMap<String, String>();
+                    map.put("home", "Anasayfa");
+                    return new ModelAndView(map, "home.mustache");
                 });
 
         get("/compute",
