@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import javax.sound.midi.Patch;
+
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
 import static spark.Spark.port;
@@ -30,10 +32,15 @@ public class App {
         Logger logger = LogManager.getLogger(App.class);
         logger.error("Custom error message.");
 
-
         int port = Integer.parseInt(System.getenv("PORT"));
         port(port);
-        logger.error("Current port number is "+ port);
+        logger.error("Current port number is " + port);
+
+        get("/",
+                (req, res) -> {
+                    String home = "Anasayfa";
+                    return new ModelAndView(home, "home.mustache");
+                });
 
         get("/compute",
                 (rq, rs) -> {
