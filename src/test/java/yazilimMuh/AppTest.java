@@ -6,9 +6,41 @@ package yazilimMuh;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 class AppTest {
-    @Test void appHasAGreeting() {
+    @Test
+    void appHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
+
+    @Test
+    public void generatePasswordSuccess() {
+        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList("?", "*", "#", "/"));
+        String name = "Alpgiray", lastName = "Haşlak";
+        int passwordLength = 5;
+        assertTrue(
+                (App.generatePassword(arrayList, name, lastName, passwordLength) != null));
+    }
+
+    @Test
+    public void testPasswordLength() {
+        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList("?", "*", "#", "/"));
+        String name = "Alpgiray", lastName = "Haşlak";
+        int passwordLength = 5;
+        assertFalse(
+                (App.generatePassword(arrayList, name, lastName, passwordLength).length() < passwordLength));
+    }
+
+    @Test
+    public void testEmptyArray() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        String name = "Alpgiray", lastName = "Haşlak";
+        int passwordLength = 5;
+        assertFalse(
+                (App.generatePassword(arrayList, name, lastName, passwordLength).length()) == 0);
+    }
+
 }
