@@ -1,6 +1,6 @@
 # Şifre oluşturucu
 
-Programın amacı güçlü bir şifre üretmektir. Kullanıcıdan aldığı
+Programın amacı güçlü bir şifre üretmektir. Kullanıcıdan aldığı Ad, Soyad, Karakter ve  şifre uzunluğunu kullanıcıdan alarak güçlü bir şifre üretir.
 
 ## [Live website](https://yazilimmuhodev3.herokuapp.com/)
 
